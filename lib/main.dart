@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pumpkins/screens/new_arrivals.dart';
+import 'package:pumpkins/screens/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,17 +39,31 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title, style: GoogleFonts.robotoMono()),
+        title: Text(widget.title,
+            style: TextStyle(
+              fontStyle: GoogleFonts.robotoMono().fontStyle,
+              fontWeight: FontWeight.bold,
+            )),
         elevation: 0,
       ),
       drawer: Drawer(
-          child: ListView(padding: EdgeInsets.zero, children: const [
-        DrawerHeader(
+          child: ListView(padding: EdgeInsets.zero, children: [
+        const DrawerHeader(
           decoration: BoxDecoration(
             color: Colors.orange,
           ),
           child: Text(''),
         ),
+        ListTile(
+          title: const Text('New Arrivals'),
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const NewArrivals())),
+        ),
+        ListTile(
+          title: const Text('Profile'),
+          onTap: () => Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Profile())),
+        )
       ])),
       body: Center(
         child: Column(
