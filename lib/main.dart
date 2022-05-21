@@ -13,8 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'pumpkins',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
+          primarySwatch: Colors.orange,
+          textTheme: GoogleFonts.robotoMonoTextTheme(
+            Theme.of(context).textTheme,
+          )),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'pumpkins'),
     );
   }
@@ -34,8 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title, style: GoogleFonts.robotoMono()),
+        elevation: 0,
       ),
+      drawer: Drawer(
+          child: ListView(padding: EdgeInsets.zero, children: const [
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.orange,
+          ),
+          child: Text(''),
+        ),
+      ])),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
