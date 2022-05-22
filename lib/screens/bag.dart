@@ -14,10 +14,9 @@ class Bag extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {},
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
         ),
       ),
     );
