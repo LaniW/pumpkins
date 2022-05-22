@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pumpkins/screens/new_arrivals.dart';
+import 'package:pumpkins/screens/about.dart';
+import 'package:pumpkins/screens/buy_used.dart';
+import 'package:pumpkins/screens/free.dart';
+import 'package:pumpkins/screens/rent.dart';
 import 'package:pumpkins/screens/profile.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -35,10 +38,10 @@ final List<Widget> imageSliders = imgList
                         ),
                       ),
                       padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 20.0),
-                      child: Text(
-                        'No. ${imgList.indexOf(item)} image',
-                        style: const TextStyle(
+                          vertical: 0.0, horizontal: 20.0),
+                      child: const Text(
+                        '',
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
@@ -103,27 +106,98 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Text(''),
         ),
         ListTile(
-          title: const Text('New Arrivals'),
+          title: const Text('Free'),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Free())),
+        ),
+        ListTile(
+          title: const Text('Rent'),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Rent())),
+        ),
+        ListTile(
+          title: const Text('Buy Used'),
           onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const NewArrivals())),
+              MaterialPageRoute(builder: (context) => const BuyUsed())),
         ),
         ListTile(
           title: const Text('Profile'),
           onTap: () => Navigator.push(context,
               MaterialPageRoute(builder: (context) => const Profile())),
-        )
+        ),
+        ListTile(
+          title: const Text('About'),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const About())),
+        ),
       ])),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
+            const Text('', style: TextStyle(fontSize: 20.0)),
+            const Center(
+                child: Text('New Arrivals 🎃🎃🎃',
+                    style: TextStyle(fontSize: 20.0))),
+            const Text('', style: TextStyle(fontSize: 10.0)),
             CarouselSlider(
               options: CarouselOptions(
                 autoPlay: true,
-                aspectRatio: 2.0,
+                aspectRatio: 1.2,
                 enlargeCenterPage: true,
               ),
               items: imageSliders,
+            ),
+            const Text('', style: TextStyle(fontSize: 10.0)),
+            const Center(
+                child: Text('Recommended Categories',
+                    style: TextStyle(fontSize: 20.0))),
+            const Text('', style: TextStyle(fontSize: 20.0)),
+            Column(
+              children: [
+                ButtonTheme(
+                    minWidth: 200.0,
+                    height: 100.0,
+                    child: ElevatedButton(
+                      style: TextButton.styleFrom(
+                        textStyle: TextStyle(
+                            fontSize: 20,
+                            fontStyle: GoogleFonts.robotoMono().fontStyle),
+                      ),
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Free())),
+                      child: const Text(
+                          '                     Free                     ',
+                          style: TextStyle(fontSize: 20.0)),
+                    )),
+                const Text('', style: TextStyle(fontSize: 10.0)),
+                ElevatedButton(
+                  style: TextButton.styleFrom(
+                    textStyle: TextStyle(
+                        fontSize: 20,
+                        fontStyle: GoogleFonts.robotoMono().fontStyle),
+                  ),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Rent())),
+                  child: const Text(
+                      '                     Rent                     ',
+                      style: TextStyle(fontSize: 20.0)),
+                ),
+                const Text('', style: TextStyle(fontSize: 10.0)),
+                ElevatedButton(
+                  style: TextButton.styleFrom(
+                    textStyle: TextStyle(
+                        fontSize: 20,
+                        fontStyle: GoogleFonts.robotoMono().fontStyle),
+                  ),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const BuyUsed())),
+                  child: const Text(
+                      '                 Buy Used                 ',
+                      style: TextStyle(fontSize: 20.0)),
+                ),
+              ],
             ),
           ],
         ),
