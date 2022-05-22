@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pumpkins/screens/about.dart';
+import 'package:pumpkins/screens/bag.dart';
 import 'package:pumpkins/screens/buy_used.dart';
 import 'package:pumpkins/screens/free.dart';
+import 'package:pumpkins/screens/login.dart';
 import 'package:pumpkins/screens/rent.dart';
-import 'package:pumpkins/screens/profile.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
@@ -96,6 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
               fontWeight: FontWeight.bold,
             )),
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_bag),
+            onPressed: () => Navigator.push(
+                context, MaterialPageRoute(builder: (context) => const Bag())),
+          ),
+        ],
       ),
       drawer: Drawer(
           child: ListView(padding: EdgeInsets.zero, children: [
@@ -122,8 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         ListTile(
           title: const Text('Profile'),
-          onTap: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const Profile())),
+          onTap: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Login())),
         ),
         ListTile(
           title: const Text('About'),
