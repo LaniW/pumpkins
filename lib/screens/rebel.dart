@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class rebel extends StatelessWidget {
-  const rebel({Key? key}) : super(key: key);
+class Rebel extends StatelessWidget {
+  const Rebel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

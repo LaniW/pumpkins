@@ -145,7 +145,7 @@ class BuyUsed extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const rebel()));
+                                builder: (context) => const Rebel()));
                       },
                       child:
                           const Text('Buy Now', style: TextStyle(fontSize: 15)),
@@ -190,7 +190,7 @@ class BuyUsed extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const sw()));
+                                builder: (context) => const SW()));
                       },
                       child:
                           const Text('Buy Now', style: TextStyle(fontSize: 15)),
